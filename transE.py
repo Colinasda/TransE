@@ -227,28 +227,13 @@ class TransE:
 
 
 if __name__ == '__main__':
-    # file1 = "FB15k\\train.txt"
-    # file2 = "FB15k\\entity2id.txt"
-    # file3 = "FB15k\\relation2id.txt"
-
-    # file1 = "/Users/zhaozihao/PycharmProjects/TransE/Test/kinship-triple.txt"
-    # file2 = "/Users/zhaozihao/PycharmProjects/TransE/Test/kinship-entity2id.txt"
-    # file3 = "/Users/zhaozihao/PycharmProjects/TransE/Test/kinship-relation2id.txt"
-
-    # file1 = "/Users/zhaozihao/PycharmProjects/TransE/WN18/wordnet-mlj12-test.txt"
-    # file2 = "/Users/zhaozihao/PycharmProjects/TransE/WN18/entity2id.txt"
-    # file3 = "/Users/zhaozihao/PycharmProjects/TransE/WN18/relation2id.txt"
-
-    # file1 = "/Users/zhaozihao/PycharmProjects/TransE/YAGO3-10/test.txt"
-    # file2 = "/Users/zhaozihao/PycharmProjects/TransE/YAGO3-10/entities.txt"
-    # file3 = "/Users/zhaozihao/PycharmProjects/TransE/YAGO3-10/relations.txt"
-
-    file1 = "/Users/zhaozihao/PycharmProjects/TransE/umls/train.txt"
-    file2 = "/Users/zhaozihao/PycharmProjects/TransE/umls/entity2id.txt"
-    file3 = "/Users/zhaozihao/PycharmProjects/TransE/umls/relation2id.txt"
+    file1 = "/umls/train.txt"
+    file2 = "/umls/entity2id.txt"
+    file3 = "/umls/relation2id.txt"
 
     entity_set, relation_set, triple_list = dataloader(file1, file2, file3)
-
+    
+    # modify by yourself
     transE = TransE(entity_set, relation_set, triple_list, embedding_dim=30, lr=0.01, margin=1.0, norm=2)
     transE.data_initialise()
     transE.training_run(out_file_title="umls_")
